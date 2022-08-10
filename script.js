@@ -89,6 +89,20 @@ function showMillionaires() {
   updateDOM(onlyMillionaires);
 }
 
+//Calculate Total Wealth
+
+function calcTotalWealth() {
+  wealthSum = userData.reduce((acc, cur) => acc + cur.wealth, 0);
+
+  const totalWealthElement = document.createElement("div");
+  totalWealthElement.classList.add("total-wealth");
+  totalWealthElement.innerHTML = `
+	<span class="total-label name">Total Wealth</span>
+	<span class="total-amount wealth">${applyCurrencyFormat(wealthSum)}</span>
+	`;
+  main.appendChild(totalWealthElement);
+}
+
 // ====================================================================
 //	Initialize array and poulate with starting user data (names, wealth)
 // ====================================================================
@@ -119,6 +133,9 @@ btn_sortPoorest.addEventListener("click", sortPoorest);
 
 //Show Millionares Button Functionality
 btn_showMillionaires.addEventListener("click", showMillionaires);
+
+// Calculate Entire Wealth Button Function
+btn_calculateWealth.addEventListener("click", calcTotalWealth);
 
 // ====================================================================
 //

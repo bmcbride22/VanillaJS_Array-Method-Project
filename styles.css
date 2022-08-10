@@ -54,15 +54,22 @@ main {
 .wealth-title,
 .name,
 .wealth {
+  margin: 0;
   width: 50%;
   text-align: start;
   margin-bottom: 0.5rem;
 }
-.user {
+.user,
+.total-wealth {
   display: flex;
   margin-right: 3em;
 }
 
 .name {
   font-weight: 900;
+}
+
+.total-wealth {
+  border-top: 1px solid #111;
+  padding-top: 1rem;
 }
