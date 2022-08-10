@@ -61,10 +61,24 @@ function applyCurrencyFormat(number) {
   return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
 }
 
+// Double all users money
+
 function doubleMoney() {
   userData = userData.map((user) => {
     return { name: user.name, wealth: user.wealth * 2 };
   });
+  updateDOM();
+}
+
+// Sort by Richest
+function sortRichest() {
+  userData.sort((a, b) => b.wealth - a.wealth); // If a is larger than b -> keep order ( (-) = keep)
+  updateDOM();
+}
+
+// Sort by Poorest
+function sortPoorest() {
+  userData.sort((a, b) => a.wealth - b.wealth); // If a is larger than b -> switch order ((+) = switch)
   updateDOM();
 }
 
@@ -89,6 +103,12 @@ btn_addUser.addEventListener("click", getRandomUser);
 
 // Double Money Button Functionality
 btn_double.addEventListener("click", doubleMoney);
+
+// Sort by Richest Functionality
+btn_sortRichest.addEventListener("click", sortRichest);
+
+// Sort by Poorest Functionality
+btn_sortPoorest.addEventListener("click", sortPoorest);
 
 // ====================================================================
 //
