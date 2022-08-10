@@ -5,7 +5,7 @@
 const main = document.getElementById("main");
 const btn_addUser = document.getElementById("add-user");
 const btn_double = document.getElementById("double");
-const btn_showMillionaire = document.getElementById("show-millionaire");
+const btn_showMillionaires = document.getElementById("show-millionaires");
 const btn_sortRichest = document.getElementById("sort-richest");
 const btn_sortPoorest = document.getElementById("sort-poorest");
 const btn_calculateWealth = document.getElementById("calculate-wealth");
@@ -23,7 +23,7 @@ async function getRandomUser() {
   const user = data.results[0];
   const newUser = {
     name: `${user?.name?.first} ${user?.name?.last}`,
-    wealth: Math.floor(Math.random() * 2000000),
+    wealth: Math.floor(Math.random() * 1200000),
   };
   addData(newUser);
 }
@@ -82,6 +82,13 @@ function sortPoorest() {
   updateDOM();
 }
 
+// Show only Millionaires
+
+function showMillionaires() {
+  const onlyMillionaires = userData.filter((user) => user.wealth >= 1000000);
+  updateDOM(onlyMillionaires);
+}
+
 // ====================================================================
 //	Initialize array and poulate with starting user data (names, wealth)
 // ====================================================================
@@ -104,11 +111,14 @@ btn_addUser.addEventListener("click", getRandomUser);
 // Double Money Button Functionality
 btn_double.addEventListener("click", doubleMoney);
 
-// Sort by Richest Functionality
+// Sort by Richest Button Functionality
 btn_sortRichest.addEventListener("click", sortRichest);
 
-// Sort by Poorest Functionality
+// Sort by Poorest Button Functionality
 btn_sortPoorest.addEventListener("click", sortPoorest);
+
+//Show Millionares Button Functionality
+btn_showMillionaires.addEventListener("click", showMillionaires);
 
 // ====================================================================
 //
