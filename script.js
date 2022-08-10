@@ -31,6 +31,34 @@ async function getRandomUser() {
 // Add new user data to the userdata array
 function addData(obj) {
   userData.push(obj);
+  updateDOM();
+}
+
+// Update DOM with user data
+function updateDOM(providedData = userData) {
+  //Clear main div
+  main.innerHTML = `
+  <h2 class="column-labels">
+	<span class="person-title">Person</span>
+	<span class="wealth-title">Wealth</span>
+  </h2>`;
+
+  providedData.forEach((item) => {
+    // body
+    const element = document.createElement("div");
+    element.classList.add("user");
+    element.innerHTML = `<span class="name">${item.name}</span>
+	<span class="wealth">${applyCurrencyFormat(item.wealth)}</span>`;
+    main.appendChild(element);
+  });
+}
+
+// Format number as currency
+
+function applyCurrencyFormat(number) {
+  // Using answer from stack overflow
+  // https://stackoverflow.com/a/14428340/18649153
+  return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
 }
 
 // ====================================================================

@@ -50,8 +50,19 @@ main {
   display: flex;
   margin-right: 3em;
 }
-.bold,
+.person-title,
+.wealth-title,
+.name,
 .wealth {
   width: 50%;
   text-align: start;
+  margin-bottom: 0.5rem;
+}
+.user {
+  display: flex;
+  margin-right: 3em;
+}
+
+.name {
+  font-weight: 900;
 }
