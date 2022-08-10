@@ -61,6 +61,13 @@ function applyCurrencyFormat(number) {
   return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
 }
 
+function doubleMoney() {
+  userData = userData.map((user) => {
+    return { name: user.name, wealth: user.wealth * 2 };
+  });
+  updateDOM();
+}
+
 // ====================================================================
 //	Initialize array and poulate with starting user data (names, wealth)
 // ====================================================================
@@ -72,13 +79,16 @@ getRandomUser();
 
 console.log(userData);
 
+doubleMoney(userData);
 // ====================================================================
 //	EVENTS
 // ====================================================================
 
-// Add User Button CLick
-
+// Add User Button Functionality
 btn_addUser.addEventListener("click", getRandomUser);
+
+// Double Money Button Functionality
+btn_double.addEventListener("click", doubleMoney);
 
 // ====================================================================
 //
