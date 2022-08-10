@@ -48,7 +48,7 @@ main {
 .column-labels {
   border-bottom: 1px solid #111;
   display: flex;
-  margin-right: 3em;
+  margin-right: 3rem;
 }
 .person-title,
 .wealth-title,
@@ -62,7 +62,7 @@ main {
 .user,
 .total-wealth {
   display: flex;
-  margin-right: 3em;
+  margin-right: 3rem;
 }
 
 .name {
